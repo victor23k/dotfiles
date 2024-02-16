@@ -1,0 +1,9 @@
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+  ]
+[shell]
+program = "/bin/zsh"
+args = ["-1"]
+[font]
+normal.family = "Hack Nerd Font"
+normal.style = "regular"

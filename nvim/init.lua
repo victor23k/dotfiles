@@ -1,0 +1,5 @@
+require("config.defaults").defaults()
+require("config.mappings").globalMappings()
+require("config.lazy")
+--require("plugins").setup()
+--require("config.coc-config")
