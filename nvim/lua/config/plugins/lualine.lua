@@ -3,7 +3,7 @@ return {
 
   config = function ()
     local lualine = require('lualine')
-    
+
     lualine.setup({
       sections = {
           lualine_a = {'mode'},
@@ -11,7 +11,7 @@ return {
           lualine_c = {'filename'},
           lualine_x = {'encoding', 'fileformat', 'filetype'},
           lualine_y = {'progress'},
-          lualine_z = {{'datetime', style = '%d/%m/%Y' },'location'}
+          lualine_z = {'location'}
         },
         inactive_sections = {
           lualine_a = {},
@@ -22,6 +22,6 @@ return {
           lualine_z = {}
         },
     })
-    
+
   end,
 }
