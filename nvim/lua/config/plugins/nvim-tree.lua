@@ -30,5 +30,6 @@ return {
 
     m.map('n', '<Leader>n', ':NvimTreeToggle<CR>', { noremap = true, silent = true }) 	-- Open file directory tree 
     m.map('n', '<Leader>B', ':NvimTreeFocus<CR>', { noremap = true, silent = true }) 	-- Focus file directory tree 
+    m.map('n', '<Leader>ff', ':NvimTreeFindFile<CR>', { noremap = true, silent = true }) 	-- [F]ind [f]ile directory tree 
   end,
 }
