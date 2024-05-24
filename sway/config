@@ -23,12 +23,12 @@ set $menu tofi-run | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/
-output * bg /home/victor/Downloads/wp6705955.jpg fill
+output * bg /home/victor/Pictures/cool_wallpaper.png fill
 # Example configuration:
 #
 # ofi 1 config
 output HDMI-A-1 resolution 3840x2160 position 0,0 scale 2
-output eDP-1 resolution 1920x1080 position 1920,880
+output eDP-1 resolution 1920x1080 position 1920,480
 # casa 1 config
 #output HDMI-A-1 resolution 1920x1080 position 1920,0
 #output eDP-1 resolution 1920x1080 position 0,0
