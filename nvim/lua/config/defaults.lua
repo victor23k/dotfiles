@@ -6,7 +6,7 @@ local M = {}
 
 function M.defaults()
   -- Set english as language
-  api.nvim_exec ('language en_US', true)
+  api.nvim_exec ('language en_US.UTF-8', true)
   --
   -- Remap leader and local leader to <Space>
   api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
