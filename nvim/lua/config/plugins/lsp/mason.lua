@@ -13,6 +13,7 @@ return {
       ensure_installed = {
         "lua_ls",
         "rust_analyzer",
+        "pylsp",
       },
       automatic_installation = true,
     })

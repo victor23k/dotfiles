@@ -10,6 +10,9 @@ return {
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+    lspconfig.pylsp.setup {
+      capabilities = capabilities
+    }
     lspconfig.rust_analyzer.setup {
       capabilities = capabilities
     }
@@ -25,9 +28,16 @@ return {
       capabilities = capabilities,
     }
 
+    -- lspconfig.nextls.setup {
+    --   capabilities = capabilities,
+    --   cmd = {"nextls", "--stdio"},
+    --   cmd_env = {COMMIT = "mock-commit"}
+    -- }
+
     lspconfig.elixirls.setup {
+      cmd_env = {COMMIT = "mock-commit"},
       cmd = { "/home/victor/.elixir-ls/language_server.sh" },
-      capabilities = capabilities,
+      capabilities = capabilities
     }
 
     vim.api.nvim_create_autocmd('LspAttach', {
