@@ -1,14 +1,14 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
   },
 
   config = function()
     require('neodev').setup()
-    local lspconfig = require("lspconfig")
 
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    local lspconfig = require('lspconfig')
 
     lspconfig.pylsp.setup {
       capabilities = capabilities
@@ -24,18 +24,22 @@ return {
         }
       }
     }
-    lspconfig.tsserver.setup {
-      capabilities = capabilities,
-    }
+    -- lspconfig.tsserver.setup {
+    --   capabilities = capabilities,
+    -- }
 
     -- lspconfig.nextls.setup {
     --   capabilities = capabilities,
     --   cmd = {"nextls", "--stdio"},
     --   cmd_env = {COMMIT = "mock-commit"}
     -- }
+    --
+    lspconfig.eslint.setup {
+      capabilities = capabilities,
+    }
 
     lspconfig.elixirls.setup {
-      cmd_env = {COMMIT = "mock-commit"},
+      cmd_env = { COMMIT = "mock-commit" },
       cmd = { "/home/victor/.elixir-ls/language_server.sh" },
       capabilities = capabilities
     }
@@ -85,5 +89,12 @@ return {
         end, { desc = 'Format current buffer with LSP' })
       end,
     })
+
+    vim.api.nvim_create_user_command("LspLogClear", function()
+      local lsplogpath = vim.fn.stdpath("state") .. "/lsp.log"
+      print(lsplogpath)
+      if io.close(io.open(lsplogpath, "w+b")) == false then vim.notify("Clearning LSP Log failed.", vim.log.levels.WARN) end
+    end, { nargs = 0 })
+
   end,
 }

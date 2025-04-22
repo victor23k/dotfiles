@@ -2,8 +2,8 @@ local m = require("config.mappings")
 
 return {
   "nvim-telescope/telescope.nvim", 
-  branch = "0.1.x",
-  dependencies = { 
+  branch = "master",
+  dependencies = {
     "nvim-lua/plenary.nvim"
   },
 

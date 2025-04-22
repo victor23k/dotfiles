@@ -1,12 +1,18 @@
 local kanagawa = {
   "rebelot/kanagawa.nvim",
   config = function()
-    require('kanagawa').setup({
-      transparent = true
-    })
-
     vim.cmd([[colorscheme kanagawa-wave]])
   end,
+}
+
+local tokyonight = {
+  "folke/tokyonight.nvim",
+  config = function ()
+    vim.cmd([[colorscheme tokyonight]])
+  end,
+  lazy = false,
+  priority = 1000,
+  opts = {},
 }
 
 local oxocarbon = {
@@ -19,5 +25,5 @@ local oxocarbon = {
 }
 
 return {
-  kanagawa,
+  tokyonight,
 }

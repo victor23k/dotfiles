@@ -4,7 +4,7 @@ return {
     config = function()
         local configs = require("nvim-treesitter.configs")
         configs.setup({
-            ensure_installed = { "lua", "erlang", "elixir", "heex", "json", "python" },
+            ensure_installed = { "lua", "erlang", "elixir", "heex", "json", "python", "javascript" },
             sync_install = false,
             auto_install = false,
             highlight = {
