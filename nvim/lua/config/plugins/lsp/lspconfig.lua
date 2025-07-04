@@ -8,41 +8,35 @@ return {
     require('neodev').setup()
 
     local capabilities = require('blink.cmp').get_lsp_capabilities()
-    local lspconfig = require('lspconfig')
 
-    lspconfig.pylsp.setup {
+    vim.lsp.config('elixirls', {
+      cmd_env = { COMMIT = 'mock-commit', },
+      cmd = { '/home/victor/.elixir-ls/language_server.sh', },
+      capabilities = capabilities,
+    })
+
+    vim.lsp.enable('elixirls')
+
+    vim.lsp.config('pylsp', {
       capabilities = capabilities
-    }
-    lspconfig.rust_analyzer.setup {
+    })
+
+    vim.lsp.config('rust_analyzer', {
       capabilities = capabilities
-    }
-    lspconfig.lua_ls.setup {
+    })
+
+    vim.lsp.config('lua_ls', {
       capabilities = capabilities,
       settings = {
         diagnostics = {
           globals = { 'vim' },
         }
       }
-    }
-    -- lspconfig.tsserver.setup {
-    --   capabilities = capabilities,
-    -- }
+    })
 
-    -- lspconfig.nextls.setup {
-    --   capabilities = capabilities,
-    --   cmd = {"nextls", "--stdio"},
-    --   cmd_env = {COMMIT = "mock-commit"}
-    -- }
-    --
-    lspconfig.eslint.setup {
+    vim.lsp.config('eslint', {
       capabilities = capabilities,
-    }
-
-    lspconfig.elixirls.setup {
-      cmd_env = { COMMIT = "mock-commit" },
-      cmd = { "/home/victor/.elixir-ls/language_server.sh" },
-      capabilities = capabilities
-    }
+    })
 
     vim.api.nvim_create_autocmd('LspAttach', {
       callback = function(args)
